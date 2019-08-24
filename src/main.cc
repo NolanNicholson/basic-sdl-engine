@@ -73,7 +73,8 @@ int main() {
         screenSurface->format, 0xFF, 0xFF, 0xFF));
 
   //Blit the test image to the screen
-  SDL_BlitSurface(test_img, NULL, screenSurface, NULL);
+  SDL_Rect stretchRect = { 0, 0, test_img->w * 2, test_img->h * 2 };
+  SDL_BlitScaled(test_img, NULL, screenSurface, &stretchRect);
 
   //Update surface
   SDL_UpdateWindowSurface(window);
